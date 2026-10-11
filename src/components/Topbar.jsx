@@ -72,13 +72,13 @@ export default function Topbar({ onToggleMobileMenu }) {
 
           {/* Progress Bar & Days Left */}
           <div className="flex items-center gap-2.5">
-            <div className="w-24 sm:w-36 lg:w-48 h-2 rounded-full bg-parchment-300/80 overflow-hidden">
+            <div className="w-24 sm:w-36 lg:w-48 h-2.5 rounded-full bg-parchment-300/80 overflow-hidden shadow-inner">
               <div
-                className="h-full bg-gradient-to-r from-mint-600 to-mint-500 rounded-full transition-all duration-300"
+                className="h-full bg-gradient-to-r from-emerald-600 via-teal-500 to-amber-400 rounded-full transition-all duration-300"
                 style={{ width: `${progressPercent}%` }}
               />
             </div>
-            <span className="text-xs text-ink-500 font-sans whitespace-nowrap">
+            <span className="text-xs text-ink-600 font-sans whitespace-nowrap font-medium">
               {metrics.remainingDays} days left
             </span>
           </div>
@@ -90,7 +90,7 @@ export default function Topbar({ onToggleMobileMenu }) {
         {/* Search Button */}
         <button
           aria-label="Search transactions"
-          className="p-2 rounded-full text-ink-600 hover:text-ink-950 hover:bg-parchment-200/80 border border-parchment-300/70 transition-colors shadow-subtle"
+          className="p-2 rounded-full text-ink-600 hover:text-ink-950 hover:bg-parchment-200/80 border border-parchment-300/70 transition-colors shadow-subtle hover:border-emerald-400/50"
           title="Search"
         >
           <Search className="w-4 h-4" />
@@ -99,23 +99,23 @@ export default function Topbar({ onToggleMobileMenu }) {
         {/* Notifications with indicator dot */}
         <button
           aria-label="Notifications"
-          className="relative p-2 rounded-full text-ink-600 hover:text-ink-950 hover:bg-parchment-200/80 border border-parchment-300/70 transition-colors shadow-subtle"
+          className="relative p-2 rounded-full text-ink-600 hover:text-ink-950 hover:bg-parchment-200/80 border border-parchment-300/70 transition-colors shadow-subtle hover:border-emerald-400/50"
           title="Notifications"
         >
           <Bell className="w-4 h-4" />
-          <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-terracotta-500 ring-2 ring-parchment-50" />
+          <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-rose-500 ring-2 ring-parchment-50 animate-pulse" />
         </button>
 
         {/* User Profile Pill */}
         <div className="flex items-center gap-2.5 pl-1 sm:pl-2">
-          <div className="w-8 h-8 rounded-full bg-forest-900 text-gold-300 flex items-center justify-center font-bold text-xs shadow-sm border border-gold-500/40">
+          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-forest-900 to-[#0A1A12] text-gold-300 flex items-center justify-center font-bold text-xs shadow-md border-2 border-gold-400/70 ring-2 ring-emerald-500/20">
             P
           </div>
           <div className="hidden md:block text-left">
             <span className="block text-xs font-semibold text-ink-950 leading-tight">
               Prince Mishra
             </span>
-            <span className="block text-[10px] text-ink-500 leading-tight">
+            <span className="block text-[10px] text-emerald-700 font-medium leading-tight">
               Stay Financially Smart
             </span>
           </div>

@@ -171,35 +171,35 @@ export default function DecisionLab({ onNavigateToOverview }) {
 
         {/* Required Presets Ribbon for quick evaluation */}
         <div className="mt-6 pt-5 border-t border-ink-800/80">
-          <span className="text-xs text-ink-400 font-medium block mb-2.5">
+          <span className="text-xs text-ink-300 font-semibold block mb-2.5">
             Judge & Benchmark Scenarios (1-Click Presets):
           </span>
           <div className="flex flex-wrap items-center gap-2.5">
             <button
               type="button"
               onClick={() => loadPreset('preset-subscription-999')}
-              className="px-3.5 py-2 rounded-xl bg-ink-800 hover:bg-mint-900 text-mint-200 border border-mint-500/30 text-xs font-semibold flex items-center gap-2 transition-all shadow-subtle"
+              className="px-3.5 py-2.5 rounded-xl bg-[#0D2418] hover:bg-[#133322] text-emerald-200 border border-emerald-400/50 text-xs font-bold flex items-center gap-2 transition-all shadow-sm hover:shadow active:scale-95"
             >
-              <Zap className="w-3.5 h-3.5 text-amberGold-400" />
-              Test ₹999 Monthly Subscription
+              <Zap className="w-4 h-4 text-amberGold-400 shrink-0" />
+              <span>Test ₹999 Monthly Subscription</span>
             </button>
 
             <button
               type="button"
               onClick={() => loadPreset('preset-emergency-2000')}
-              className="px-3.5 py-2 rounded-xl bg-ink-800 hover:bg-terracotta-900 text-terracotta-200 border border-terracotta-500/30 text-xs font-semibold flex items-center gap-2 transition-all shadow-subtle"
+              className="px-3.5 py-2.5 rounded-xl bg-[#291211] hover:bg-[#381918] text-rose-200 border border-rose-400/50 text-xs font-bold flex items-center gap-2 transition-all shadow-sm hover:shadow active:scale-95"
             >
-              <AlertTriangle className="w-3.5 h-3.5 text-terracotta-400" />
-              Test ₹2,000 Emergency Expense
+              <AlertTriangle className="w-4 h-4 text-rose-400 shrink-0" />
+              <span>Test ₹2,000 Emergency Expense</span>
             </button>
 
             <button
               type="button"
               onClick={() => loadPreset('preset-income-1500')}
-              className="px-3.5 py-2 rounded-xl bg-ink-800 hover:bg-mint-900 text-mint-300 border border-ink-700 text-xs font-medium flex items-center gap-2 transition-all"
+              className="px-3.5 py-2.5 rounded-xl bg-[#0E2320] hover:bg-[#14312D] text-teal-200 border border-teal-400/50 text-xs font-bold flex items-center gap-2 transition-all shadow-sm hover:shadow active:scale-95"
             >
-              <TrendingUp className="w-3.5 h-3.5 text-mint-400" />
-              Test +₹1,500 Side Income
+              <TrendingUp className="w-4 h-4 text-teal-300 shrink-0" />
+              <span>Test +₹1,500 Side Income</span>
             </button>
           </div>
         </div>
@@ -209,15 +209,15 @@ export default function DecisionLab({ onNavigateToOverview }) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         {/* LEFT: Scenario Configuration Form */}
-        <div className="lg:col-span-5 p-6 rounded-2xl bg-parchment-50 border border-parchment-300 shadow-subtle space-y-5">
-          <div className="flex items-center justify-between pb-2 border-b border-parchment-200">
+        <div className="lg:col-span-5 p-6 sm:p-7 rounded-3xl bg-white/95 border border-parchment-300 shadow-card hover:shadow-elevated transition-all space-y-5 relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-emerald-500 via-teal-500 to-amber-500">
+          <div className="flex items-center justify-between pb-3 border-b border-parchment-200">
             <div>
               <h2 className="text-lg font-serif font-bold text-ink-950">
                 Configure Financial Decision
               </h2>
-              <p className="text-xs text-ink-500">Define candidate parameters to simulate</p>
+              <p className="text-xs text-ink-500 font-medium">Define candidate parameters to simulate</p>
             </div>
-            <span className="text-xs font-mono px-2 py-0.5 rounded bg-parchment-200 text-ink-700">
+            <span className="text-[11px] font-mono font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 shadow-xs">
               Isolated
             </span>
           </div>
@@ -239,7 +239,7 @@ export default function DecisionLab({ onNavigateToOverview }) {
                 id="decision-type"
                 value={formData.type}
                 onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                className="w-full px-3 py-2 rounded-xl bg-parchment-100 border border-parchment-300 text-sm font-medium text-ink-900 focus:ring-2 focus:ring-mint-500 transition-all"
+                className="w-full px-3 py-2 rounded-xl bg-parchment-50 border border-parchment-300 text-sm font-semibold text-ink-900 focus:ring-2 focus:ring-mint-500 transition-all"
               >
                 <option value="subscription">Recurring Subscription / Bill</option>
                 <option value="unexpected_expense">Unexpected Emergency Expense</option>
@@ -261,7 +261,7 @@ export default function DecisionLab({ onNavigateToOverview }) {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="e.g. Netflix 4K, Bike Repair, Winter Coat..."
-                className={`w-full px-3 py-2 rounded-xl bg-parchment-100 border text-sm text-ink-900 focus:ring-2 focus:ring-mint-500 transition-all ${
+                className={`w-full px-3 py-2 rounded-xl bg-parchment-50 border text-sm text-ink-900 focus:ring-2 focus:ring-mint-500 transition-all ${
                   formErrors.name ? 'border-terracotta-400' : 'border-parchment-300'
                 }`}
               />
@@ -285,7 +285,7 @@ export default function DecisionLab({ onNavigateToOverview }) {
                     step="1"
                     value={formData.amount}
                     onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
-                    className={`w-full pl-7 pr-3 py-2 rounded-xl bg-parchment-100 border text-sm font-num text-ink-900 focus:ring-2 focus:ring-mint-500 transition-all ${
+                    className={`w-full pl-7 pr-3 py-2 rounded-xl bg-parchment-50 border text-sm font-num text-ink-900 focus:ring-2 focus:ring-mint-500 transition-all ${
                       formErrors.amount ? 'border-terracotta-400' : 'border-parchment-300'
                     }`}
                   />
@@ -306,7 +306,7 @@ export default function DecisionLab({ onNavigateToOverview }) {
                   max="30"
                   value={formData.day}
                   onChange={(e) => setFormData({ ...formData, day: e.target.value })}
-                  className={`w-full px-3 py-2 rounded-xl bg-parchment-100 border text-sm font-num text-ink-900 focus:ring-2 focus:ring-mint-500 transition-all ${
+                  className={`w-full px-3 py-2 rounded-xl bg-parchment-50 border text-sm font-num text-ink-900 focus:ring-2 focus:ring-mint-500 transition-all ${
                     formErrors.day ? 'border-terracotta-400' : 'border-parchment-300'
                   }`}
                 />
@@ -325,7 +325,7 @@ export default function DecisionLab({ onNavigateToOverview }) {
                 id="decision-category"
                 value={formData.category}
                 onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                className="w-full px-3 py-2 rounded-xl bg-parchment-100 border border-parchment-300 text-sm text-ink-900 focus:ring-2 focus:ring-mint-500"
+                className="w-full px-3 py-2 rounded-xl bg-parchment-50 border border-parchment-300 text-sm text-ink-900 focus:ring-2 focus:ring-mint-500"
               >
                 {CATEGORIES.map((cat) => (
                   <option key={cat} value={cat}>
@@ -346,7 +346,7 @@ export default function DecisionLab({ onNavigateToOverview }) {
                 value={formData.notes}
                 onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                 placeholder="Why are you testing this decision?"
-                className="w-full px-3 py-2 rounded-xl bg-parchment-100 border border-parchment-300 text-xs text-ink-900 focus:ring-2 focus:ring-mint-500"
+                className="w-full px-3 py-2 rounded-xl bg-parchment-50 border border-parchment-300 text-xs text-ink-900 focus:ring-2 focus:ring-mint-500"
               />
             </div>
 
@@ -354,7 +354,7 @@ export default function DecisionLab({ onNavigateToOverview }) {
             <div className="pt-2 flex items-center gap-3">
               <button
                 type="submit"
-                className="flex-1 py-2.5 px-4 rounded-xl bg-mint-700 hover:bg-mint-800 text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-subtle transition-all"
+                className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-700 via-emerald-600 to-teal-600 hover:from-emerald-600 hover:to-teal-500 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all active:scale-95"
               >
                 <Play className="w-4 h-4 fill-white" />
                 Simulate Decision
@@ -363,7 +363,7 @@ export default function DecisionLab({ onNavigateToOverview }) {
               <button
                 type="button"
                 onClick={handleDiscard}
-                className="px-3.5 py-2.5 rounded-xl border border-parchment-300 text-ink-600 hover:text-ink-900 hover:bg-parchment-200 text-xs font-medium transition-colors"
+                className="px-3.5 py-3 rounded-xl border border-parchment-300 text-ink-600 hover:text-ink-900 hover:bg-parchment-200 text-xs font-semibold transition-colors"
                 title="Clear current simulation"
               >
                 Clear
@@ -398,15 +398,15 @@ export default function DecisionLab({ onNavigateToOverview }) {
 
           {!simulationResult ? (
             /* Empty State when no scenario simulated yet */
-            <div className="p-10 rounded-2xl bg-parchment-50 border border-parchment-300 text-center space-y-4">
-              <div className="w-14 h-14 rounded-2xl bg-parchment-200 text-mint-700 mx-auto flex items-center justify-center shadow-subtle">
+            <div className="p-10 rounded-3xl bg-white/90 border border-parchment-300 shadow-card text-center space-y-4">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-100 to-teal-100 text-emerald-700 mx-auto flex items-center justify-center shadow-xs border border-emerald-200">
                 <FlaskConical className="w-7 h-7" />
               </div>
               <div className="max-w-md mx-auto">
                 <h3 className="font-serif font-bold text-lg text-ink-900">
                   Ready to Simulate Consequences
                 </h3>
-                <p className="text-xs text-ink-500 mt-1.5 leading-relaxed">
+                <p className="text-xs text-ink-500 mt-1.5 leading-relaxed font-medium">
                   Enter an expense or choose a preset on the left, then click <strong>Simulate Decision</strong>.
                   You will see an isolated side-by-side Before vs After impact analysis.
                 </p>
@@ -415,7 +415,7 @@ export default function DecisionLab({ onNavigateToOverview }) {
                 <button
                   type="button"
                   onClick={() => loadPreset('preset-subscription-999')}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-parchment-200 hover:bg-parchment-300 text-xs font-semibold text-ink-800 transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-parchment-200 hover:bg-parchment-300 text-xs font-bold text-ink-800 transition-colors shadow-xs"
                 >
                   <Zap className="w-3.5 h-3.5 text-amberGold-600" />
                   Try ₹999 Subscription Preset
@@ -424,7 +424,7 @@ export default function DecisionLab({ onNavigateToOverview }) {
             </div>
           ) : (
             /* Active Simulation Impact Panel */
-            <div className="p-6 sm:p-7 rounded-2xl bg-parchment-50 border border-parchment-300/90 shadow-card space-y-6 animate-fadeIn">
+            <div className="p-6 sm:p-7 rounded-3xl bg-white/95 border border-parchment-300 shadow-card hover:shadow-elevated transition-all space-y-6 relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-amber-500 via-emerald-500 to-teal-500 animate-fadeIn">
               
               {/* Verdict Header */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-parchment-200">
@@ -607,12 +607,12 @@ export default function DecisionLab({ onNavigateToOverview }) {
                     type="button"
                     onClick={handleCommit}
                     disabled={hasCommitted}
-                    className={`flex-1 sm:flex-none px-5 py-2.5 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 shadow-subtle transition-all ${
+                    className={`flex-1 sm:flex-none px-6 py-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all ${
                       hasCommitted
                         ? 'bg-parchment-300 text-ink-400 cursor-not-allowed'
                         : simulationResult.verdict === 'UNSUSTAINABLE'
-                        ? 'bg-terracotta-700 hover:bg-terracotta-800 text-white'
-                        : 'bg-mint-700 hover:bg-mint-800 text-white'
+                        ? 'bg-gradient-to-r from-rose-700 to-rose-600 hover:from-rose-600 hover:to-rose-500 text-white active:scale-95'
+                        : 'bg-gradient-to-r from-emerald-700 via-emerald-600 to-teal-600 hover:from-emerald-600 hover:to-teal-500 text-white active:scale-95'
                     }`}
                   >
                     {hasCommitted ? (

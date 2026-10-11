@@ -131,7 +131,7 @@ export default function BudgetPlanner() {
 
         <button
           onClick={openAddCommModal}
-          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-mint-700 hover:bg-mint-800 text-white font-semibold text-xs sm:text-sm shadow-subtle transition-all"
+          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-700 via-emerald-600 to-teal-600 hover:from-emerald-600 hover:to-teal-500 text-white font-bold text-xs sm:text-sm shadow-sm hover:shadow-md transition-all active:scale-95"
         >
           <Plus className="w-4 h-4" />
           Add Recurring Commitment
@@ -139,7 +139,7 @@ export default function BudgetPlanner() {
       </div>
 
       {/* SECTION 1: CATEGORY BUDGET LIMITS & ACTUALS */}
-      <section className="p-6 rounded-2xl bg-parchment-50 border border-parchment-300 shadow-subtle space-y-5">
+      <section className="p-6 sm:p-7 rounded-3xl bg-white/95 border border-parchment-300 shadow-card relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-emerald-600 via-teal-400 to-amber-500 space-y-5">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-lg font-serif font-bold text-ink-950">
@@ -241,26 +241,26 @@ export default function BudgetPlanner() {
       </section>
 
       {/* SECTION 2: RECURRING COMMITMENTS & SUBSCRIPTIONS */}
-      <section className="p-6 rounded-2xl bg-parchment-50 border border-parchment-300 shadow-subtle space-y-4">
+      <section className="p-6 sm:p-7 rounded-3xl bg-white/95 border border-parchment-300 shadow-card relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-sky-500 via-indigo-500 to-emerald-500 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
             <h2 className="text-lg font-serif font-bold text-ink-950">
               Recurring Bills & Subscriptions
             </h2>
-            <p className="text-xs text-ink-500">
+            <p className="text-xs text-ink-500 font-medium">
               Future scheduled bills appear in forecast and are reserved, but never double-counted when paid.
             </p>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded-full bg-amberGold-100 text-amberGold-800">
+            <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-200 shadow-xs">
               {formatCurrency(metrics.outstandingCommitments)} Unpaid Future Commitments
             </span>
           </div>
         </div>
 
         {/* Commitment Items Table/List */}
-        <div className="divide-y divide-parchment-200 border border-parchment-200 rounded-xl overflow-hidden bg-parchment-100/50">
+        <div className="divide-y divide-parchment-200 border border-parchment-200 rounded-2xl overflow-hidden bg-parchment-50/70">
           {(state.commitments || []).map((comm) => {
             const isDueTodayOrPast = comm.day <= state.currentDay;
             const isPaid = (comm.paidOccurrences || []).includes(comm.day);
@@ -321,7 +321,7 @@ export default function BudgetPlanner() {
                     {comm.active && !isPaid && (
                       <button
                         onClick={() => payCommitment(comm.id, comm.day)}
-                        className="px-2.5 py-1.5 rounded-lg bg-mint-700 hover:bg-mint-800 text-white text-xs font-semibold flex items-center gap-1 transition-colors"
+                        className="px-3 py-1.5 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold flex items-center gap-1 shadow-xs hover:shadow transition-all active:scale-95"
                         title="Mark bill paid and record transaction"
                       >
                         <Check className="w-3.5 h-3.5" />

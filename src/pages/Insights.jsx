@@ -73,7 +73,7 @@ export default function Insights({ onNavigateToLab }) {
       </div>
 
       {/* SECTION 1: INTERACTIVE DISCRETIONARY TRIM SIMULATOR */}
-      <section className="p-6 sm:p-7 rounded-2xl bg-parchment-50 border border-parchment-300 shadow-subtle space-y-5">
+      <section className="p-6 sm:p-7 rounded-3xl bg-white/95 border border-parchment-300 shadow-card relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-emerald-600 via-teal-400 to-amber-500 space-y-5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
             <div className="flex items-center gap-2">
@@ -169,20 +169,20 @@ export default function Insights({ onNavigateToLab }) {
       </section>
 
       {/* SECTION 2: UNEXPECTED SHOCK STRESS-TEST TEMPLATES */}
-      <section className="p-6 rounded-2xl bg-parchment-50 border border-parchment-300 shadow-subtle space-y-4">
+      <section className="p-6 sm:p-7 rounded-3xl bg-white/95 border border-parchment-300 shadow-card relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-rose-500 via-amber-500 to-indigo-500 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
             <h2 className="text-lg font-serif font-bold text-ink-950 flex items-center gap-2">
               <AlertTriangle className="w-5 h-5 text-terracotta-600" />
               Emergency Shock Stress Tests
             </h2>
-            <p className="text-xs text-ink-500">
+            <p className="text-xs text-ink-500 font-medium">
               Test sudden unavoidable shocks in the Decision Lab to verify whether your ₹10,000 plan survives.
             </p>
           </div>
           <button
             onClick={onNavigateToLab}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-mint-700 hover:bg-mint-800 text-white text-xs font-semibold shadow-subtle transition-colors"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-700 via-emerald-600 to-teal-600 hover:from-emerald-600 hover:to-teal-500 text-white text-xs font-bold shadow-sm hover:shadow-md transition-all active:scale-95"
           >
             Open Decision Lab
             <ArrowRight className="w-3.5 h-3.5" />

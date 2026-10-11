@@ -133,22 +133,44 @@ export default function Transactions() {
           <h1 className="text-2xl sm:text-3xl font-serif font-bold text-ink-950">
             Transaction Ledger
           </h1>
-          <p className="text-xs sm:text-sm text-ink-600">
+          <p className="text-xs sm:text-sm text-ink-600 font-medium">
             Recorded inflows and outflows. Updates safe daily allowance in real time.
           </p>
         </div>
 
         <button
           onClick={openAddModal}
-          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-mint-700 hover:bg-mint-800 text-white font-semibold text-xs sm:text-sm shadow-subtle transition-all"
+          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-700 via-emerald-600 to-teal-600 hover:from-emerald-600 hover:to-teal-500 text-white font-bold text-xs sm:text-sm shadow-sm hover:shadow-md transition-all active:scale-95"
         >
           <Plus className="w-4 h-4" />
           Log Transaction
         </button>
       </div>
 
+      {/* 3 Quick Financial Snapshot Stat Pills */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div className="p-3.5 rounded-2xl bg-white/90 border border-parchment-300 shadow-xs flex items-center justify-between">
+          <span className="text-xs text-ink-600 font-medium">Actual Money Spent</span>
+          <span className="text-sm font-bold font-num text-rose-700 bg-rose-50 px-2 py-0.5 rounded-full border border-rose-200/80">
+            {formatCurrency(metrics.actualExpenses)}
+          </span>
+        </div>
+        <div className="p-3.5 rounded-2xl bg-white/90 border border-parchment-300 shadow-xs flex items-center justify-between">
+          <span className="text-xs text-ink-600 font-medium">Income Received</span>
+          <span className="text-sm font-bold font-num text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/80">
+            +{formatCurrency(metrics.incomeReceived)}
+          </span>
+        </div>
+        <div className="p-3.5 rounded-2xl bg-white/90 border border-parchment-300 shadow-xs flex items-center justify-between">
+          <span className="text-xs text-ink-600 font-medium">Available Cash</span>
+          <span className="text-sm font-bold font-num text-teal-900 bg-teal-50 px-2 py-0.5 rounded-full border border-teal-200/80">
+            {formatCurrency(metrics.availableCash)}
+          </span>
+        </div>
+      </div>
+
       {/* Filter and Search Bar */}
-      <div className="p-4 rounded-2xl bg-parchment-50 border border-parchment-300 shadow-subtle space-y-3">
+      <div className="p-4 sm:p-5 rounded-3xl bg-white/95 border border-parchment-300 shadow-card space-y-3">
         <div className="grid grid-cols-1 sm:grid-cols-12 gap-3">
           
           {/* Search Input */}
@@ -159,7 +181,7 @@ export default function Transactions() {
               placeholder="Search description or notes..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 rounded-xl bg-parchment-100 border border-parchment-300 text-xs text-ink-900 focus:ring-2 focus:ring-mint-500"
+              className="w-full pl-9 pr-3 py-2 rounded-xl bg-parchment-50 border border-parchment-300 text-xs text-ink-900 focus:ring-2 focus:ring-mint-500 font-medium"
             />
           </div>
 
@@ -168,7 +190,7 @@ export default function Transactions() {
             <select
               value={selectedType}
               onChange={(e) => setSelectedType(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl bg-parchment-100 border border-parchment-300 text-xs text-ink-900 focus:ring-2 focus:ring-mint-500"
+              className="w-full px-3 py-2 rounded-xl bg-parchment-50 border border-parchment-300 text-xs text-ink-900 focus:ring-2 focus:ring-mint-500 font-semibold"
             >
               <option value="ALL">All Types</option>
               <option value="expense">Expenses Only</option>
@@ -181,7 +203,7 @@ export default function Transactions() {
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl bg-parchment-100 border border-parchment-300 text-xs text-ink-900 focus:ring-2 focus:ring-mint-500"
+              className="w-full px-3 py-2 rounded-xl bg-parchment-50 border border-parchment-300 text-xs text-ink-900 focus:ring-2 focus:ring-mint-500 font-semibold"
             >
               <option value="ALL">All Categories</option>
               {CATEGORIES.map((c) => (
@@ -197,7 +219,7 @@ export default function Transactions() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl bg-parchment-100 border border-parchment-300 text-xs text-ink-900 focus:ring-2 focus:ring-mint-500"
+              className="w-full px-3 py-2 rounded-xl bg-parchment-50 border border-parchment-300 text-xs text-ink-900 focus:ring-2 focus:ring-mint-500 font-semibold"
             >
               <option value="day-desc">Day (Newest)</option>
               <option value="day-asc">Day (Oldest)</option>
@@ -209,7 +231,7 @@ export default function Transactions() {
       </div>
 
       {/* Transactions List */}
-      <div className="rounded-2xl bg-parchment-50 border border-parchment-300 shadow-subtle overflow-hidden">
+      <div className="rounded-3xl bg-white/95 border border-parchment-300 shadow-card overflow-hidden">
         {filteredTransactions.length === 0 ? (
           <div className="p-12 text-center space-y-3">
             <Receipt className="w-10 h-10 text-ink-400 mx-auto" />
@@ -232,10 +254,16 @@ export default function Transactions() {
                   {/* Left: Icon, Description, Category, Notes */}
                   <div className="flex items-start sm:items-center gap-3.5">
                     <div
-                      className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${
+                      className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-xs border ${
                         isIncome
-                          ? 'bg-mint-100 text-mint-800 border border-mint-300'
-                          : 'bg-parchment-200 text-terracotta-700 border border-parchment-300'
+                          ? 'bg-gradient-to-br from-emerald-50 to-teal-100 text-emerald-700 border-emerald-300'
+                          : (tx.category || '').includes('Food')
+                          ? 'bg-gradient-to-br from-rose-50 to-rose-100 text-rose-600 border-rose-200'
+                          : (tx.category || '').includes('Travel')
+                          ? 'bg-gradient-to-br from-sky-50 to-sky-100 text-sky-600 border-sky-200'
+                          : (tx.category || '').includes('Subscription')
+                          ? 'bg-gradient-to-br from-purple-50 to-purple-100 text-purple-600 border-purple-200'
+                          : 'bg-gradient-to-br from-amber-50 to-amber-100 text-amber-700 border-amber-200'
                       }`}
                     >
                       {isIncome ? <ArrowDownLeft className="w-4 h-4" /> : <ArrowUpRight className="w-4 h-4" />}
@@ -244,12 +272,12 @@ export default function Transactions() {
                     <div className="space-y-0.5">
                       <div className="flex items-center gap-2">
                         <h3 className="font-semibold text-sm text-ink-950">{tx.description}</h3>
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-parchment-200 text-ink-700">
+                        <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-parchment-200/90 text-ink-700 border border-parchment-300/80">
                           Day {tx.day}
                         </span>
                       </div>
                       <div className="flex flex-wrap items-center gap-2 text-xs text-ink-500">
-                        <span className="flex items-center gap-1">
+                        <span className="flex items-center gap-1 font-medium">
                           <Tag className="w-3 h-3 text-ink-400" />
                           {tx.category}
                         </span>
@@ -264,10 +292,12 @@ export default function Transactions() {
                   </div>
 
                   {/* Right: Amount & Actions */}
-                  <div className="flex items-center justify-between sm:justify-end gap-4 pt-2 sm:pt-0 border-t sm:border-t-0 border-parchment-200">
+                  <div className="flex items-center justify-between sm:justify-end gap-3.5 pt-2 sm:pt-0 border-t sm:border-t-0 border-parchment-200">
                     <span
-                      className={`text-base font-bold font-num ${
-                        isIncome ? 'text-mint-700' : 'text-ink-950'
+                      className={`px-3 py-1 rounded-full text-xs sm:text-sm font-bold font-num shadow-xs border ${
+                        isIncome
+                          ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
+                          : 'bg-rose-50 text-rose-800 border-rose-200'
                       }`}
                     >
                       {isIncome ? `+${formatCurrency(tx.amount)}` : `-${formatCurrency(tx.amount)}`}
