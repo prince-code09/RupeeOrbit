@@ -149,28 +149,28 @@ export default function Transactions() {
 
       {/* 3 Quick Financial Snapshot Stat Pills */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <div className="p-3.5 rounded-2xl bg-white/90 border border-parchment-300 shadow-xs flex items-center justify-between">
+        <div className="p-3.5 rounded-2xl bg-[#16243A] border border-[#243B5E] shadow-card flex items-center justify-between">
           <span className="text-xs text-ink-600 font-medium">Actual Money Spent</span>
-          <span className="text-sm font-bold font-num text-rose-700 bg-rose-50 px-2 py-0.5 rounded-full border border-rose-200/80">
+          <span className="text-sm font-bold font-num text-rose-300 bg-rose-950/50 px-2.5 py-0.5 rounded-full border border-rose-500/30">
             {formatCurrency(metrics.actualExpenses)}
           </span>
         </div>
-        <div className="p-3.5 rounded-2xl bg-white/90 border border-parchment-300 shadow-xs flex items-center justify-between">
+        <div className="p-3.5 rounded-2xl bg-[#16243A] border border-[#243B5E] shadow-card flex items-center justify-between">
           <span className="text-xs text-ink-600 font-medium">Income Received</span>
-          <span className="text-sm font-bold font-num text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/80">
+          <span className="text-sm font-bold font-num text-emerald-300 bg-emerald-950/50 px-2.5 py-0.5 rounded-full border border-emerald-500/30">
             +{formatCurrency(metrics.incomeReceived)}
           </span>
         </div>
-        <div className="p-3.5 rounded-2xl bg-white/90 border border-parchment-300 shadow-xs flex items-center justify-between">
+        <div className="p-3.5 rounded-2xl bg-[#16243A] border border-[#243B5E] shadow-card flex items-center justify-between">
           <span className="text-xs text-ink-600 font-medium">Available Cash</span>
-          <span className="text-sm font-bold font-num text-teal-900 bg-teal-50 px-2 py-0.5 rounded-full border border-teal-200/80">
+          <span className="text-sm font-bold font-num text-teal-300 bg-teal-950/50 px-2.5 py-0.5 rounded-full border border-teal-500/30">
             {formatCurrency(metrics.availableCash)}
           </span>
         </div>
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="p-4 sm:p-5 rounded-3xl bg-white/95 border border-parchment-300 shadow-card space-y-3">
+      <div className="p-4 sm:p-5 rounded-3xl bg-[#16243A] border border-[#243B5E] shadow-card space-y-3">
         <div className="grid grid-cols-1 sm:grid-cols-12 gap-3">
           
           {/* Search Input */}
@@ -231,7 +231,7 @@ export default function Transactions() {
       </div>
 
       {/* Transactions List */}
-      <div className="rounded-3xl bg-white/95 border border-parchment-300 shadow-card overflow-hidden">
+      <div className="rounded-3xl bg-[#16243A] border border-[#243B5E] shadow-card overflow-hidden">
         {filteredTransactions.length === 0 ? (
           <div className="p-12 text-center space-y-3">
             <Receipt className="w-10 h-10 text-ink-400 mx-auto" />
@@ -256,14 +256,14 @@ export default function Transactions() {
                     <div
                       className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-xs border ${
                         isIncome
-                          ? 'bg-gradient-to-br from-emerald-50 to-teal-100 text-emerald-700 border-emerald-300'
+                          ? 'bg-emerald-950/50 text-emerald-300 border-emerald-500/40'
                           : (tx.category || '').includes('Food')
-                          ? 'bg-gradient-to-br from-rose-50 to-rose-100 text-rose-600 border-rose-200'
+                          ? 'bg-rose-950/50 text-rose-300 border-rose-500/40'
                           : (tx.category || '').includes('Travel')
-                          ? 'bg-gradient-to-br from-sky-50 to-sky-100 text-sky-600 border-sky-200'
+                          ? 'bg-sky-950/50 text-sky-300 border-sky-500/40'
                           : (tx.category || '').includes('Subscription')
-                          ? 'bg-gradient-to-br from-purple-50 to-purple-100 text-purple-600 border-purple-200'
-                          : 'bg-gradient-to-br from-amber-50 to-amber-100 text-amber-700 border-amber-200'
+                          ? 'bg-purple-950/50 text-purple-300 border-purple-500/40'
+                          : 'bg-amber-950/50 text-amber-300 border-amber-500/40'
                       }`}
                     >
                       {isIncome ? <ArrowDownLeft className="w-4 h-4" /> : <ArrowUpRight className="w-4 h-4" />}
@@ -296,8 +296,8 @@ export default function Transactions() {
                     <span
                       className={`px-3 py-1 rounded-full text-xs sm:text-sm font-bold font-num shadow-xs border ${
                         isIncome
-                          ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
-                          : 'bg-rose-50 text-rose-800 border-rose-200'
+                          ? 'bg-emerald-950/50 text-emerald-300 border-emerald-500/40'
+                          : 'bg-rose-950/50 text-rose-300 border-rose-500/40'
                       }`}
                     >
                       {isIncome ? `+${formatCurrency(tx.amount)}` : `-${formatCurrency(tx.amount)}`}

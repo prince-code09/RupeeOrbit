@@ -209,7 +209,7 @@ export default function DecisionLab({ onNavigateToOverview }) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         {/* LEFT: Scenario Configuration Form */}
-        <div className="lg:col-span-5 p-6 sm:p-7 rounded-3xl bg-white/95 border border-parchment-300 shadow-card hover:shadow-elevated transition-all space-y-5 relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-emerald-500 via-teal-500 to-amber-500">
+        <div className="lg:col-span-5 p-6 sm:p-7 rounded-3xl bg-[#16243A] border border-[#243B5E] shadow-card hover:shadow-elevated transition-all space-y-5 relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-teal-400 via-cyan-400 to-blue-500">
           <div className="flex items-center justify-between pb-3 border-b border-parchment-200">
             <div>
               <h2 className="text-lg font-serif font-bold text-ink-950">
@@ -398,15 +398,15 @@ export default function DecisionLab({ onNavigateToOverview }) {
 
           {!simulationResult ? (
             /* Empty State when no scenario simulated yet */
-            <div className="p-10 rounded-3xl bg-white/90 border border-parchment-300 shadow-card text-center space-y-4">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-100 to-teal-100 text-emerald-700 mx-auto flex items-center justify-center shadow-xs border border-emerald-200">
+            <div className="p-10 rounded-3xl bg-[#16243A] border border-[#243B5E] shadow-card text-center space-y-4">
+              <div className="w-14 h-14 rounded-2xl bg-cyan-500/20 text-cyan-300 mx-auto flex items-center justify-center shadow-xs border border-cyan-400/30">
                 <FlaskConical className="w-7 h-7" />
               </div>
               <div className="max-w-md mx-auto">
-                <h3 className="font-serif font-bold text-lg text-ink-900">
+                <h3 className="font-serif font-bold text-lg text-white">
                   Ready to Simulate Consequences
                 </h3>
-                <p className="text-xs text-ink-500 mt-1.5 leading-relaxed font-medium">
+                <p className="text-xs text-ink-600 mt-1.5 leading-relaxed font-medium">
                   Enter an expense or choose a preset on the left, then click <strong>Simulate Decision</strong>.
                   You will see an isolated side-by-side Before vs After impact analysis.
                 </p>
@@ -415,16 +415,16 @@ export default function DecisionLab({ onNavigateToOverview }) {
                 <button
                   type="button"
                   onClick={() => loadPreset('preset-subscription-999')}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-parchment-200 hover:bg-parchment-300 text-xs font-bold text-ink-800 transition-colors shadow-xs"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#111C30] hover:bg-[#1A2C46] text-xs font-bold text-cyan-200 border border-[#243B5E] transition-colors shadow-xs"
                 >
-                  <Zap className="w-3.5 h-3.5 text-amberGold-600" />
+                  <Zap className="w-3.5 h-3.5 text-cyan-400" />
                   Try ₹999 Subscription Preset
                 </button>
               </div>
             </div>
           ) : (
             /* Active Simulation Impact Panel */
-            <div className="p-6 sm:p-7 rounded-3xl bg-white/95 border border-parchment-300 shadow-card hover:shadow-elevated transition-all space-y-6 relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-amber-500 via-emerald-500 to-teal-500 animate-fadeIn">
+            <div className="p-6 sm:p-7 rounded-3xl bg-[#16243A] border border-[#243B5E] shadow-card hover:shadow-elevated transition-all space-y-6 relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-amber-500 via-teal-400 to-cyan-400 animate-fadeIn">
               
               {/* Verdict Header */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-parchment-200">

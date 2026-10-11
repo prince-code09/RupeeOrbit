@@ -147,9 +147,9 @@ export default function SavingsGoals({ onNavigateToLab }) {
       </div>
 
       {/* Total Savings Metrics Ribbon */}
-      <div className="p-6 sm:p-7 rounded-3xl bg-white/95 border border-parchment-300 shadow-card relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-teal-500 via-emerald-500 to-amber-500 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="p-6 sm:p-7 rounded-3xl bg-[#16243A] border border-[#243B5E] shadow-card relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-teal-500 via-emerald-500 to-amber-500 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-50 to-emerald-100 text-emerald-800 border border-emerald-200/90 flex items-center justify-center shrink-0 shadow-xs">
+          <div className="w-12 h-12 rounded-2xl bg-teal-500/15 text-teal-300 border border-teal-500/30 flex items-center justify-center shrink-0 shadow-xs">
             <PiggyBank className="w-6 h-6" />
           </div>
           <div>
@@ -187,7 +187,7 @@ export default function SavingsGoals({ onNavigateToLab }) {
           return (
             <div
               key={goal.id}
-              className="p-6 sm:p-7 rounded-3xl bg-white/95 border border-parchment-300 shadow-card hover:shadow-elevated transition-all space-y-4 relative flex flex-col justify-between overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-teal-500 via-emerald-500 to-amber-500"
+              className="p-6 sm:p-7 rounded-3xl bg-[#16243A] border border-[#243B5E] shadow-card hover:shadow-elevated transition-all space-y-4 relative flex flex-col justify-between overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-teal-500 via-emerald-500 to-amber-500"
             >
               <div className="space-y-3">
                 <div className="flex items-start justify-between gap-2">

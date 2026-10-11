@@ -1,19 +1,23 @@
 /**
- * Indian Rupee and numeric formatters for Ledgerly
+ * Indian Rupee and numeric formatters for RupeeOrbit
  */
 
 // Convert Rupee value to integer paise to eliminate floating-point rounding errors
 export function toPaise(rupees) {
-  if (typeof rupees !== 'number' || isNaN(rupees)) {
-    rupees = Number(rupees) || 0;
+  if (typeof rupees !== 'number' || !Number.isFinite(rupees)) {
+    const parsed = Number(rupees);
+    if (!Number.isFinite(parsed)) return 0;
+    rupees = parsed;
   }
   return Math.round(rupees * 100);
 }
 
 // Convert integer paise back to rupees
 export function fromPaise(paise) {
-  if (typeof paise !== 'number' || isNaN(paise)) {
-    paise = Number(paise) || 0;
+  if (typeof paise !== 'number' || !Number.isFinite(paise)) {
+    const parsed = Number(paise);
+    if (!Number.isFinite(parsed)) return 0;
+    paise = parsed;
   }
   return paise / 100;
 }

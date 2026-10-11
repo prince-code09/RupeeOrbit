@@ -73,7 +73,7 @@ export default function Insights({ onNavigateToLab }) {
       </div>
 
       {/* SECTION 1: INTERACTIVE DISCRETIONARY TRIM SIMULATOR */}
-      <section className="p-6 sm:p-7 rounded-3xl bg-white/95 border border-parchment-300 shadow-card relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-emerald-600 via-teal-400 to-amber-500 space-y-5">
+      <section className="p-6 sm:p-7 rounded-3xl bg-[#16243A] border border-[#243B5E] shadow-card relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-emerald-600 via-teal-400 to-amber-500 space-y-5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
             <div className="flex items-center gap-2">
@@ -164,12 +164,12 @@ export default function Insights({ onNavigateToLab }) {
         </div>
 
         <p className="text-[11px] text-ink-500 italic">
-          *Estimates assume uniform discretionary restraint across all remaining challenge days; actual outcomes depend on unexpected occurrences. Ledgerly does not guarantee financial safety.
+          *Estimates assume uniform discretionary restraint across all remaining challenge days; actual outcomes depend on unexpected occurrences. RupeeOrbit does not guarantee financial safety.
         </p>
       </section>
 
       {/* SECTION 2: UNEXPECTED SHOCK STRESS-TEST TEMPLATES */}
-      <section className="p-6 sm:p-7 rounded-3xl bg-white/95 border border-parchment-300 shadow-card relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-rose-500 via-amber-500 to-indigo-500 space-y-4">
+      <section className="p-6 sm:p-7 rounded-3xl bg-[#16243A] border border-[#243B5E] shadow-card relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-rose-500 via-amber-500 to-indigo-500 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
             <h2 className="text-lg font-serif font-bold text-ink-950 flex items-center gap-2">
@@ -229,12 +229,12 @@ export default function Insights({ onNavigateToLab }) {
       </section>
 
       {/* SECTION 3: EXPLAINABLE SCORING ARCHITECTURE DOCUMENTATION */}
-      <section className="p-6 rounded-2xl bg-parchment-50 border border-parchment-300 shadow-subtle space-y-4">
+      <section className="p-6 rounded-2xl bg-[#16243A] border border-[#243B5E] shadow-card space-y-4">
         <h2 className="text-lg font-serif font-bold text-ink-950">
           Scoring Methodology & Mathematical Transparency
         </h2>
         <p className="text-xs text-ink-600 leading-relaxed">
-          Ledgerly uses deterministic, fully explainable rules without black-box approximations. Both Risk Score and Health Score are evaluated strictly against survival constraints:
+          RupeeOrbit uses deterministic, fully explainable rules without black-box approximations. Both Risk Score and Health Score are evaluated strictly against survival constraints:
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">

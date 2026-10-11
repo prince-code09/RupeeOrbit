@@ -139,7 +139,7 @@ export default function BudgetPlanner() {
       </div>
 
       {/* SECTION 1: CATEGORY BUDGET LIMITS & ACTUALS */}
-      <section className="p-6 sm:p-7 rounded-3xl bg-white/95 border border-parchment-300 shadow-card relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-emerald-600 via-teal-400 to-amber-500 space-y-5">
+      <section className="p-6 sm:p-7 rounded-3xl bg-[#16243A] border border-[#243B5E] shadow-card relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-teal-400 via-cyan-400 to-blue-500 space-y-5">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-lg font-serif font-bold text-ink-950">
@@ -241,7 +241,7 @@ export default function BudgetPlanner() {
       </section>
 
       {/* SECTION 2: RECURRING COMMITMENTS & SUBSCRIPTIONS */}
-      <section className="p-6 sm:p-7 rounded-3xl bg-white/95 border border-parchment-300 shadow-card relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-sky-500 via-indigo-500 to-emerald-500 space-y-4">
+      <section className="p-6 sm:p-7 rounded-3xl bg-[#16243A] border border-[#243B5E] shadow-card relative overflow-hidden before:absolute before:top-0 before:left-0 before:right-0 before:h-1.5 before:bg-gradient-to-r before:from-cyan-400 via-teal-400 to-blue-500 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
             <h2 className="text-lg font-serif font-bold text-ink-950">

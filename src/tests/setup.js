@@ -21,3 +21,13 @@ Object.defineProperty(window, 'matchMedia', {
     dispatchEvent: () => {},
   }),
 });
+
+// Suppress Recharts jsdom 0-dimension container warning in test logs
+const originalWarn = console.warn;
+console.warn = (...args) => {
+  if (typeof args[0] === 'string' && args[0].includes('width(0) and height(0) of chart')) {
+    return;
+  }
+  originalWarn(...args);
+};
+

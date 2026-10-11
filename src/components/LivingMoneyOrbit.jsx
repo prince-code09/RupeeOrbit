@@ -3,7 +3,7 @@ import React from 'react';
 /**
  * LivingMoneyOrbit
  * 
- * Signature Visual for Ledgerly based on the design mockup:
+ * Signature Visual for RupeeOrbit based on the design mockup:
  * Dimensional stack of glowing golden/emerald Rupee tokens,
  * surrounded by concentric ribbon orbit rings with floating miniature category charms:
  * - 🏠 House (Rent)

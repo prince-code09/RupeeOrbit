@@ -1,5 +1,5 @@
 /**
- * LEDGERLY DEFAULT SEED DATA
+ * RUPEEORBIT DEFAULT SEED DATA
  * Initial 30-day survival state with ₹10,000 starting budget.
  */
 
@@ -128,4 +128,5 @@ export const INITIAL_DEMO_STATE = {
   ],
 };
 
-export const STORAGE_KEY = 'ledgerly_survival_v1_state';
+export const STORAGE_KEY = 'rupeeorbit_survival_v1_state';
+export const LEGACY_STORAGE_KEY = 'ledgerly_survival_v1_state';

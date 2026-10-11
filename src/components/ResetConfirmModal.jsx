@@ -37,7 +37,7 @@ export default function ResetConfirmModal({ isOpen, onClose, onConfirm }) {
         </h3>
 
         <p className="text-sm text-ink-600 mt-2 leading-relaxed">
-          This will restore Ledgerly to the initial ₹10,000 challenge starting state (Day 4 baseline). All custom transactions, simulated decisions, and adjusted goals will be cleared.
+          This will restore RupeeOrbit to the initial ₹10,000 challenge starting state (Day 4 baseline). All custom transactions, simulated decisions, and adjusted goals will be cleared.
         </p>
 
         <div className="mt-6 flex flex-col sm:flex-row items-center justify-end gap-3">

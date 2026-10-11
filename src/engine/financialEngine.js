@@ -1,5 +1,5 @@
 /**
- * LEDGERLY FINANCIAL ENGINE
+ * RUPEEORBIT FINANCIAL ENGINE
  * 
  * Single source of truth for all financial math, 30-day survival projections,
  * risk & health scoring, and Decision Lab scenario simulations.

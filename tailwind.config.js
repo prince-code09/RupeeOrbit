@@ -7,63 +7,79 @@ export default {
   theme: {
     extend: {
       colors: {
+        midnight: {
+          950: '#070C16',
+          900: '#0B1220', // Main background
+          850: '#0E1726',
+          800: '#111C30', // Secondary background
+          750: '#16243A', // Card surface
+          700: '#1C2E4A',
+          650: '#203454',
+          600: '#263E63', // Refined borders
+          500: '#345282',
+        },
         forest: {
-          950: '#0B130F',
-          900: '#111D17',
-          850: '#15251E',
-          800: '#1A2C24',
-          700: '#233930',
-          600: '#2E4B3F',
+          950: '#070C16',
+          900: '#0B1220',
+          850: '#0E1726',
+          800: '#111C30',
+          700: '#16243A',
+          600: '#1F3452',
         },
         parchment: {
-          50: '#FAF8F5',
-          100: '#F5F2EB',
-          150: '#EFECE2',
-          200: '#EBE5D8',
-          300: '#DDD5C2',
-          400: '#C7BBA2',
-          500: '#AA9A7E',
-          600: '#8C7B60',
-          700: '#6E5F48',
-          800: '#534735',
-          900: '#3A3125',
+          50: '#16243A',   // card surface (#16243A)
+          100: '#1A2C46',  // slightly lighter card surface / pill
+          150: '#1E3352',
+          200: '#223A5E',  // subtle borders & inner pills
+          300: '#2A4874',  // card borders
+          400: '#3A5F96',
+          500: '#547EB8',
+          600: '#7B9FD1',
+          700: '#A4BFE4',
+          800: '#CFE0F5',
+          900: '#EAF2FB',
         },
         ink: {
-          950: '#0C1210',
-          900: '#141D1A',
-          800: '#1E2C27',
-          700: '#2D3E38',
-          600: '#435850',
-          500: '#637A71',
-          400: '#8E9F98',
-          300: '#CBD5D0',
-          200: '#E2E8E5',
-          100: '#F0F4F2',
-          50: '#F8FAF9',
+          950: '#FFFFFF',  // primary crisp white
+          900: '#F1F5F9',  // main text (#F1F5F9)
+          800: '#E2E8F0',
+          700: '#CBD5E1',
+          600: '#A8B6CA',  // muted text (#A8B6CA)
+          500: '#94A3B8',  // secondary muted
+          400: '#64748B',
+          300: '#475569',
+          200: '#334155',
+          100: '#1E293B',
+          50: '#0F172A',
+        },
+        accent: {
+          blue: '#63B3ED',  // Primary accent (cyan/sky #63B3ED)
+          teal: '#5EEAD4',  // Secondary accent (mint/teal #5EEAD4)
+          cyan: '#38BDF8',
         },
         mint: {
-          50: '#F0FBF7',
-          100: '#DDF7ED',
-          200: '#BCEDDA',
-          300: '#86DDC0',
-          400: '#49C59F',
-          500: '#1EA67E',
-          600: '#128664',
-          700: '#106B52',
-          800: '#105542',
-          900: '#0F4738',
+          50: '#0F2922',
+          100: '#13392E',
+          200: '#1A4D3E',
+          300: '#266D57',
+          400: '#2DD4BF',
+          500: '#5EEAD4',
+          600: '#14B8A6',
+          700: '#0D9488',
+          800: '#0F766E',
+          900: '#115E59',
         },
         terracotta: {
-          50: '#FDF6F4',
-          100: '#FBEBE7',
-          200: '#F7D6CD',
-          300: '#F0B3A3',
-          400: '#E37F69',
-          500: '#CF563C',
-          600: '#B53C24',
-          700: '#922F1C',
-          800: '#75281A',
-          900: '#602419',
+          50: '#2E1513',
+          100: '#3F1C18',
+          200: '#5A2620',
+          300: '#7E3228',
+          400: '#B84534',
+          500: '#EF4444',
+          600: '#DC2626',
+          700: '#B91C1C',
+          800: '#991B1B',
+          900: '#7F1D1D',
         },
         gold: {
           300: '#FDE047',
@@ -88,11 +104,13 @@ export default {
         script: ['"Caveat"', 'cursive', 'sans-serif'],
       },
       boxShadow: {
-        'subtle': '0 1px 3px rgba(19, 29, 26, 0.04), 0 1px 2px rgba(19, 29, 26, 0.02)',
-        'card': '0 4px 18px -2px rgba(19, 29, 26, 0.05), 0 2px 6px -1px rgba(19, 29, 26, 0.03)',
-        'elevated': '0 12px 32px -4px rgba(19, 29, 26, 0.08), 0 4px 12px -2px rgba(19, 29, 26, 0.04)',
-        'floating': '0 20px 40px -8px rgba(19, 29, 26, 0.12), 0 8px 16px -4px rgba(19, 29, 26, 0.06)',
-        'glow-emerald': '0 0 25px rgba(26, 166, 126, 0.25)',
+        'subtle': '0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2)',
+        'card': '0 4px 20px -2px rgba(2, 6, 23, 0.55), 0 2px 8px -1px rgba(2, 6, 23, 0.35)',
+        'elevated': '0 12px 36px -4px rgba(2, 6, 23, 0.75), 0 4px 16px -2px rgba(2, 6, 23, 0.5)',
+        'floating': '0 24px 48px -8px rgba(2, 6, 23, 0.9), 0 8px 24px -4px rgba(2, 6, 23, 0.65)',
+        'glow-cyan': '0 0 25px rgba(99, 179, 237, 0.25)',
+        'glow-teal': '0 0 25px rgba(94, 234, 212, 0.25)',
+        'glow-emerald': '0 0 25px rgba(94, 234, 212, 0.25)',
       },
       animation: {
         'float-slow': 'float 6s ease-in-out infinite',

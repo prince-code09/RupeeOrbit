@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { INITIAL_DEMO_STATE, STORAGE_KEY } from '../data/seedData.js';
+import { INITIAL_DEMO_STATE, STORAGE_KEY, LEGACY_STORAGE_KEY } from '../data/seedData.js';
 import {
   calculateFinancialMetrics,
   simulateScenario,
@@ -14,22 +14,35 @@ export function FinancialProvider({ children }) {
   // Load state from localStorage or initialize with seed data
   const [state, setState] = useState(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
+      const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        // Basic validation of stored structure
+        // Robust schema validation of stored structure
         if (
           parsed &&
-          typeof parsed.initialBudget === 'number' &&
+          typeof parsed === 'object' &&
+          Number.isFinite(parsed.initialBudget) &&
+          parsed.initialBudget > 0 &&
           Array.isArray(parsed.transactions) &&
           Array.isArray(parsed.commitments) &&
           Array.isArray(parsed.goals)
         ) {
-          return parsed;
+          // Sanitize currentDay
+          const currentDay = Math.max(1, Math.min(30, Number(parsed.currentDay) || 4));
+          // Sanitize transactions
+          const validTransactions = parsed.transactions.filter(
+            t => t && typeof t === 'object' && Number.isFinite(t.amount) && t.amount > 0 && t.description
+          );
+          return {
+            ...INITIAL_DEMO_STATE,
+            ...parsed,
+            currentDay,
+            transactions: validTransactions,
+          };
         }
       }
     } catch (e) {
-      console.warn('Failed to parse saved Ledgerly state, reverting to seed data.', e);
+      console.warn('Failed to parse saved RupeeOrbit state, reverting to seed data.', e);
     }
     return INITIAL_DEMO_STATE;
   });
@@ -39,7 +52,7 @@ export function FinancialProvider({ children }) {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     } catch (e) {
-      console.error('Failed to save Ledgerly state to localStorage:', e);
+      console.error('Failed to save RupeeOrbit state to localStorage:', e);
     }
   }, [state]);
 
@@ -191,7 +204,12 @@ export function FinancialProvider({ children }) {
   };
 
   const resetToDemo = () => {
-    localStorage.removeItem(STORAGE_KEY);
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(LEGACY_STORAGE_KEY);
+      localStorage.removeItem('rupeeorbit_guide_seen');
+      localStorage.removeItem('ledgerly_intro_seen');
+    } catch (_) {}
     setState(INITIAL_DEMO_STATE);
   };
 

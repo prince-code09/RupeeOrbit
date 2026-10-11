@@ -9,7 +9,7 @@ import {
 } from '../engine/financialEngine.js';
 import { INITIAL_DEMO_STATE } from '../data/seedData.js';
 
-describe('Ledgerly Financial Engine - Core Calculations & Survival Rules', () => {
+describe('RupeeOrbit Financial Engine - Core Calculations & Survival Rules', () => {
   // Test 1: Initial ₹10,000 demo state
   it('1. calculates initial ₹10,000 demo baseline correctly', () => {
     const metrics = calculateFinancialMetrics(INITIAL_DEMO_STATE);
@@ -267,5 +267,46 @@ describe('Ledgerly Financial Engine - Core Calculations & Survival Rules', () =>
     expect(() => simulateScenario(INITIAL_DEMO_STATE, { name: '', amount: 500, type: 'purchase' })).toThrow();
     expect(() => simulateScenario(INITIAL_DEMO_STATE, { name: 'Test', amount: -100, type: 'purchase' })).toThrow();
     expect(() => simulateScenario(INITIAL_DEMO_STATE, { name: 'Test', amount: 'abc', type: 'purchase' })).toThrow();
+  });
+
+  // Test 13: Exact ₹0 balance boundary & negative allowance clamp
+  it('13. correctly handles exact ₹0 balance and clamps safe daily allowance to 0', () => {
+    const zeroCashState = {
+      initialBudget: 10000,
+      currentDay: 10,
+      transactions: [
+        { id: '1', amount: 10000, type: 'expense', day: 5 },
+      ],
+      commitments: [
+        { id: 'c1', name: 'Remaining Bill', amount: 500, frequency: 'monthly', day: 20, active: true },
+      ],
+      goals: [],
+    };
+    const metrics = calculateFinancialMetrics(zeroCashState);
+    expect(metrics.availableCash).toBe(0);
+    expect(metrics.outstandingCommitments).toBe(500);
+    expect(metrics.trueUncommittedCash).toBe(-500);
+    expect(metrics.projectedDay30Balance).toBe(-500);
+    // Safe daily allowance must be non-negative (floored at 0)
+    expect(metrics.safeDailyAllowance).toBe(0);
+    expect(metrics.riskScore).toBeGreaterThanOrEqual(60);
+  });
+
+  // Test 14: Day 30 final day edge boundary
+  it('14. correctly evaluates day 30 single remaining day boundary', () => {
+    const day30State = {
+      initialBudget: 10000,
+      currentDay: 30,
+      transactions: [
+        { id: '1', amount: 9000, type: 'expense', day: 15 },
+      ],
+      commitments: [],
+      goals: [],
+    };
+    const metrics = calculateFinancialMetrics(day30State);
+    expect(metrics.currentDay).toBe(30);
+    expect(metrics.remainingDays).toBe(1);
+    expect(metrics.availableCash).toBe(1000);
+    expect(metrics.safeDailyAllowance).toBe(1000); // 1000 / 1 day
   });
 });

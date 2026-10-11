@@ -61,7 +61,7 @@ export default function Navbar({ activeTab, onSelectTab, onOpenHelp, onOpenReset
               </div>
               <div>
                 <span className="font-serif font-bold text-xl sm:text-2xl tracking-tight text-ink-950 flex items-center gap-1.5">
-                  Ledgerly
+                  RupeeOrbit
                   <span className="text-[10px] uppercase font-sans font-semibold tracking-widest px-1.5 py-0.5 rounded bg-mint-100 text-mint-800 border border-mint-300">
                     30-Day Run
                   </span>

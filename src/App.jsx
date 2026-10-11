@@ -16,7 +16,7 @@ import { FinancialProvider, useFinancial } from './context/FinancialContext.jsx'
 import { formatCurrency } from './utils/formatters.js';
 import { X } from 'lucide-react';
 
-function LedgerlyMain() {
+function RupeeOrbitMain() {
   const [activeTab, setActiveTab] = useState('overview');
   const [isHelpOpen, setIsHelpOpen] = useState(false);
   const [isResetOpen, setIsResetOpen] = useState(false);
@@ -24,22 +24,13 @@ function LedgerlyMain() {
 
   const { resetToDemo, metrics } = useFinancial();
 
-  // Show first-run introduction on initial load if not previously dismissed
-  useEffect(() => {
-    const hasSeenIntro = localStorage.getItem('ledgerly_intro_seen');
-    if (!hasSeenIntro) {
-      setIsHelpOpen(true);
-      localStorage.setItem('ledgerly_intro_seen', 'true');
-    }
-  }, []);
-
   const handleConfirmReset = () => {
     resetToDemo();
     setActiveTab('overview');
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F5EC] text-ink-950 flex font-sans antialiased">
+    <div className="min-h-screen bg-[#0B1220] text-ink-900 flex font-sans antialiased selection:bg-cyan-500/30 selection:text-white">
       {/* Accessible Skip Link */}
       <a
         href="#main-content"
@@ -95,19 +86,22 @@ function LedgerlyMain() {
       )}
 
       {/* Main Content Column */}
-      <div className="flex-1 flex flex-col min-w-0 min-h-screen bg-[#F8F5EC]">
+      <div className="flex-1 flex flex-col min-w-0 min-h-screen bg-[#0B1220]">
         {/* Top Header Bar */}
-        <Topbar onToggleMobileMenu={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+        <Topbar
+          onToggleMobileMenu={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          onOpenGuide={() => setIsHelpOpen(true)}
+        />
 
         {/* Sub-header identity banner on non-overview pages */}
         {activeTab !== 'overview' && (
-          <div className="bg-parchment-200/50 border-b border-parchment-300/80 py-2.5 px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#111C30]/85 border-b border-[#1E314F] py-2.5 px-4 sm:px-6 lg:px-8 backdrop-blur-md">
             <div className="max-w-7xl mx-auto flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <LivingMoneyOrbit size="mini" />
                 <div className="text-xs text-ink-600 font-medium">
                   Active Sandbox &bull; Available Cash:{' '}
-                  <strong className={`font-num font-bold ${metrics.availableCash < 0 ? 'text-terracotta-600' : 'text-forest-700'}`}>
+                  <strong className={`font-num font-bold ${metrics.availableCash < 0 ? 'text-red-400' : 'text-teal-400'}`}>
                     {formatCurrency(metrics.availableCash)}
                   </strong>
                   {' '}&bull; Safe Allowance:{' '}
@@ -119,7 +113,7 @@ function LedgerlyMain() {
 
               <button
                 onClick={() => setActiveTab('decision-lab')}
-                className="text-xs font-semibold text-forest-700 hover:text-forest-900 underline flex items-center gap-1"
+                className="text-xs font-semibold text-teal-400 hover:text-teal-300 underline flex items-center gap-1"
               >
                 Open Decision Lab &rarr;
               </button>
@@ -151,13 +145,13 @@ function LedgerlyMain() {
         </main>
 
         {/* Clean Luxury Editorial Footer */}
-        <footer className="mt-auto border-t border-parchment-200/90 py-5 text-xs text-ink-500 text-center space-y-1">
+        <footer className="mt-auto border-t border-[#1E314F] py-5 text-xs text-ink-600 text-center space-y-1 bg-[#0B1220]/80">
           <div className="flex items-center justify-center gap-2">
-            <span className="font-serif font-bold text-ink-900">Ledgerly</span>
+            <span className="font-serif font-bold text-ink-900">RupeeOrbit</span>
             <span>&bull;</span>
             <span>30-Day ₹10,000 Financial Survival Challenge</span>
           </div>
-          <p className="text-[11px] text-ink-400">
+          <p className="text-[11px] text-ink-600">
             Make the decision. See the consequences. Then commit.
           </p>
         </footer>
@@ -177,7 +171,7 @@ function LedgerlyMain() {
 export default function App() {
   return (
     <FinancialProvider>
-      <LedgerlyMain />
+      <RupeeOrbitMain />
     </FinancialProvider>
   );
 }

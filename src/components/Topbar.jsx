@@ -7,10 +7,11 @@ import {
   ChevronRight,
   Menu,
   Calendar,
+  HelpCircle,
 } from 'lucide-react';
 import { useFinancial } from '../context/FinancialContext.jsx';
 
-export default function Topbar({ onToggleMobileMenu }) {
+export default function Topbar({ onToggleMobileMenu, onOpenGuide }) {
   const { state, metrics, setCurrentDay } = useFinancial();
 
   const handlePrevDay = () => {
@@ -28,14 +29,14 @@ export default function Topbar({ onToggleMobileMenu }) {
   const progressPercent = Math.round((state.currentDay / 30) * 100);
 
   return (
-    <header className="sticky top-0 z-30 bg-parchment-50/85 backdrop-blur-md border-b border-parchment-200/90 px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
+    <header className="sticky top-0 z-30 bg-[#111C30]/90 backdrop-blur-md border-b border-[#1E314F] px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
       
       {/* Left: Mobile Menu Trigger + Day Progress Widget */}
       <div className="flex items-center gap-3 sm:gap-4">
         {/* Mobile Hamburger (visible on < lg screens) */}
         <button
           onClick={onToggleMobileMenu}
-          className="lg:hidden p-2 rounded-xl text-ink-700 hover:bg-parchment-200 transition-colors"
+          className="lg:hidden p-2 rounded-xl text-ink-600 hover:text-white hover:bg-[#16243A] transition-colors"
           aria-label="Open navigation menu"
         >
           <Menu className="w-5 h-5" />
@@ -43,18 +44,18 @@ export default function Topbar({ onToggleMobileMenu }) {
 
         {/* Day Tracker with Smooth Emerald Progress Bar */}
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-ink-950 font-sans">
-            <Shield className="w-4 h-4 text-forest-700 shrink-0" />
+          <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-ink-900 font-sans">
+            <Shield className="w-4 h-4 text-cyan-400 shrink-0" />
             <span>Day {state.currentDay} of 30</span>
           </div>
 
           {/* Stepper buttons */}
-          <div className="hidden sm:flex items-center bg-parchment-200/70 rounded-lg p-0.5 border border-parchment-300/60">
+          <div className="hidden sm:flex items-center bg-[#16243A] rounded-lg p-0.5 border border-[#263E63]">
             <button
               onClick={handlePrevDay}
               disabled={state.currentDay <= 1}
               aria-label="Previous day"
-              className="p-1 rounded text-ink-600 hover:text-ink-950 hover:bg-parchment-100 disabled:opacity-30 disabled:pointer-events-none transition-colors"
+              className="p-1 rounded text-ink-600 hover:text-white hover:bg-[#1E314F] disabled:opacity-30 disabled:pointer-events-none transition-colors"
               title="Step back 1 day"
             >
               <ChevronLeft className="w-3.5 h-3.5" />
@@ -63,7 +64,7 @@ export default function Topbar({ onToggleMobileMenu }) {
               onClick={handleNextDay}
               disabled={state.currentDay >= 30}
               aria-label="Next day"
-              className="p-1 rounded text-ink-600 hover:text-ink-950 hover:bg-parchment-100 disabled:opacity-30 disabled:pointer-events-none transition-colors"
+              className="p-1 rounded text-ink-600 hover:text-white hover:bg-[#1E314F] disabled:opacity-30 disabled:pointer-events-none transition-colors"
               title="Advance 1 day"
             >
               <ChevronRight className="w-3.5 h-3.5" />
@@ -72,9 +73,9 @@ export default function Topbar({ onToggleMobileMenu }) {
 
           {/* Progress Bar & Days Left */}
           <div className="flex items-center gap-2.5">
-            <div className="w-24 sm:w-36 lg:w-48 h-2.5 rounded-full bg-parchment-300/80 overflow-hidden shadow-inner">
+            <div className="w-24 sm:w-36 lg:w-48 h-2.5 rounded-full bg-[#16243A] overflow-hidden shadow-inner border border-[#1E314F]">
               <div
-                className="h-full bg-gradient-to-r from-emerald-600 via-teal-500 to-amber-400 rounded-full transition-all duration-300"
+                className="h-full bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500 rounded-full transition-all duration-300"
                 style={{ width: `${progressPercent}%` }}
               />
             </div>
@@ -85,12 +86,25 @@ export default function Topbar({ onToggleMobileMenu }) {
         </div>
       </div>
 
-      {/* Right: Search, Notifications & User Avatar */}
-      <div className="flex items-center gap-3 sm:gap-4">
+      {/* Right: Challenge Guide, Search, Notifications & User Avatar */}
+      <div className="flex items-center gap-2.5 sm:gap-3">
+        {/* Accessible Challenge Guide Button */}
+        {onOpenGuide && (
+          <button
+            onClick={onOpenGuide}
+            aria-label="Open 30-day challenge guide"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-cyan-200 bg-cyan-950/70 hover:bg-cyan-900/80 border border-cyan-400/50 transition-all shadow-subtle hover:scale-[1.02] active:scale-[0.98]"
+            title="How RupeeOrbit works & Survival Rules"
+          >
+            <HelpCircle className="w-3.5 h-3.5 text-cyan-400" />
+            <span className="hidden sm:inline">How It Works</span>
+          </button>
+        )}
+
         {/* Search Button */}
         <button
           aria-label="Search transactions"
-          className="p-2 rounded-full text-ink-600 hover:text-ink-950 hover:bg-parchment-200/80 border border-parchment-300/70 transition-colors shadow-subtle hover:border-emerald-400/50"
+          className="p-2 rounded-full text-ink-600 hover:text-white hover:bg-[#16243A] border border-[#243B5E] transition-colors shadow-subtle hover:border-cyan-400/50"
           title="Search"
         >
           <Search className="w-4 h-4" />
@@ -99,23 +113,23 @@ export default function Topbar({ onToggleMobileMenu }) {
         {/* Notifications with indicator dot */}
         <button
           aria-label="Notifications"
-          className="relative p-2 rounded-full text-ink-600 hover:text-ink-950 hover:bg-parchment-200/80 border border-parchment-300/70 transition-colors shadow-subtle hover:border-emerald-400/50"
+          className="relative p-2 rounded-full text-ink-600 hover:text-white hover:bg-[#16243A] border border-[#243B5E] transition-colors shadow-subtle hover:border-cyan-400/50"
           title="Notifications"
         >
           <Bell className="w-4 h-4" />
-          <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-rose-500 ring-2 ring-parchment-50 animate-pulse" />
+          <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-rose-500 ring-2 ring-[#111C30] animate-pulse" />
         </button>
 
         {/* User Profile Pill */}
         <div className="flex items-center gap-2.5 pl-1 sm:pl-2">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-forest-900 to-[#0A1A12] text-gold-300 flex items-center justify-center font-bold text-xs shadow-md border-2 border-gold-400/70 ring-2 ring-emerald-500/20">
+          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#16243A] to-[#0E1726] text-gold-300 flex items-center justify-center font-bold text-xs shadow-md border-2 border-gold-400/70 ring-2 ring-cyan-500/20">
             P
           </div>
           <div className="hidden md:block text-left">
-            <span className="block text-xs font-semibold text-ink-950 leading-tight">
+            <span className="block text-xs font-semibold text-ink-900 leading-tight">
               Prince Mishra
             </span>
-            <span className="block text-[10px] text-emerald-700 font-medium leading-tight">
+            <span className="block text-[10px] text-teal-400 font-medium leading-tight">
               Stay Financially Smart
             </span>
           </div>

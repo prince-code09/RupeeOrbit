@@ -1,10 +1,10 @@
-# LEDGERLY — 30-Day Financial Survival & Decision Simulator
+# RUPEEORBIT — 30-Day Financial Survival & Decision Simulator
 
 > **Core Promise:** *“Make the decision. See the consequences. Then commit.”*
 
-Ledgerly is an editorial fintech application designed for students and Gen Z users navigating a tight financial horizon: surviving 30 days on an initial budget of **₹10,000**.
+RupeeOrbit is an editorial fintech application designed for students and Gen Z users navigating a tight financial horizon: surviving 30 days on an initial budget of **₹10,000**.
 
-Unlike generic retrospective expense trackers that simply report money you've already lost, Ledgerly features an isolated **financial Decision Lab** that calculates the future consequences of financial choices before you commit hard cash.
+Unlike generic retrospective expense trackers that simply report money you've already lost, RupeeOrbit features an isolated **financial Decision Lab** that calculates the future consequences of financial choices before you commit hard cash.
 
 ---
 
@@ -90,7 +90,7 @@ Unlike generic retrospective expense trackers that simply report money you've al
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/ledgerly-survival.git
+git clone https://github.com/prince-code09/RupeeOrbit.git
 
 # Enter project directory
 cd frontend
@@ -109,7 +109,7 @@ Open `http://localhost:5173` in your browser.
 ```bash
 npm run test
 ```
-Runs all 16 Vitest unit and integration tests covering financial calculations, scenario isolation, commit protection, double-counting safeguards, and LocalStorage persistence.
+Runs all 22 Vitest unit and integration tests covering financial calculations, scenario isolation, commit protection, double-counting safeguards, accessibility, and LocalStorage persistence.
 
 ### Production Build
 ```bash
@@ -172,8 +172,8 @@ frontend/
    ```bash
    git init
    git add .
-   git commit -m "feat: complete Ledgerly financial survival application"
-   git remote add origin https://github.com/your-username/ledgerly-survival.git
+   git commit -m "feat: complete RupeeOrbit financial survival application"
+   git remote add origin https://github.com/prince-code09/RupeeOrbit.git
    git push -u origin main
    ```
 2. Log in to [Vercel](https://vercel.com).
