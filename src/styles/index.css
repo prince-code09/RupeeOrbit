@@ -3,16 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --bg-parchment: #F5F2EB;
-    --text-ink: #141D1A;
-    --accent-mint: #106B52;
-    --accent-terracotta: #CF563C;
-    --accent-amber: #D97706;
-  }
-
   body {
-    background-color: #F5F2EB;
+    background-color: #F8F5EC;
     color: #141D1A;
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     overflow-x: hidden;
@@ -25,6 +17,10 @@
   .font-num {
     font-family: 'JetBrains Mono', monospace;
     font-feature-settings: "tnum" 1, "zero" 1;
+  }
+
+  .font-handwriting {
+    font-family: 'Caveat', cursive;
   }
 }
 
@@ -50,18 +46,19 @@
   outline-offset: 2px;
 }
 
-/* Subtle pulse glow */
-@keyframes glow-mint {
-  0%, 100% {
-    box-shadow: 0 0 15px rgba(22, 163, 110, 0.25), 0 0 35px rgba(22, 163, 110, 0.1);
-  }
-  50% {
-    box-shadow: 0 0 25px rgba(22, 163, 110, 0.4), 0 0 50px rgba(22, 163, 110, 0.2);
-  }
+/* Custom mountain vignette effect in sidebar */
+.mountain-silhouette {
+  background: linear-gradient(180deg, rgba(17, 29, 23, 0) 0%, rgba(17, 29, 23, 0.6) 40%, rgba(11, 19, 15, 0.98) 100%),
+              radial-gradient(ellipse at 50% 100%, rgba(30, 60, 48, 0.4) 0%, transparent 70%);
 }
 
-.mint-glow {
-  animation: glow-mint 4s ease-in-out infinite;
+/* Glowing Medallion */
+.gold-medallion-glow {
+  box-shadow: 0 0 20px rgba(234, 179, 8, 0.3), inset 0 0 12px rgba(234, 179, 8, 0.2);
+}
+
+.emerald-ring-glow {
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.35);
 }
 
 /* Reduced motion preferences */
@@ -74,7 +71,10 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .orbit-ring, .particle, .floating-token, .mint-glow {
+  .animate-float-slow,
+  .animate-orbit-clockwise,
+  .animate-orbit-counter,
+  .animate-pulse-subtle {
     animation: none !important;
     transform: none !important;
   }

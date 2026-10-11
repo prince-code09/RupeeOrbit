@@ -7,9 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
+        forest: {
+          950: '#0B130F',
+          900: '#111D17',
+          850: '#15251E',
+          800: '#1A2C24',
+          700: '#233930',
+          600: '#2E4B3F',
+        },
         parchment: {
           50: '#FAF8F5',
           100: '#F5F2EB',
+          150: '#EFECE2',
           200: '#EBE5D8',
           300: '#DDD5C2',
           400: '#C7BBA2',
@@ -56,11 +65,13 @@ export default {
           800: '#75281A',
           900: '#602419',
         },
-        chartreuse: {
-          300: '#BEF264',
-          400: '#A3E635',
-          500: '#84CC16',
-          600: '#65A30D',
+        gold: {
+          300: '#FDE047',
+          400: '#FACC15',
+          500: '#EAB308',
+          600: '#CA8A04',
+          700: '#A16207',
+          800: '#854D0E',
         },
         amberGold: {
           300: '#FCD34D',
@@ -74,30 +85,32 @@ export default {
         serif: ['"Playfair Display"', 'Georgia', 'serif'],
         sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'Menlo', 'monospace'],
+        script: ['"Caveat"', 'cursive', 'sans-serif'],
       },
       boxShadow: {
-        'subtle': '0 1px 3px rgba(19, 29, 26, 0.05), 0 1px 2px rgba(19, 29, 26, 0.03)',
-        'card': '0 4px 16px -2px rgba(19, 29, 26, 0.06), 0 2px 6px -1px rgba(19, 29, 26, 0.04)',
+        'subtle': '0 1px 3px rgba(19, 29, 26, 0.04), 0 1px 2px rgba(19, 29, 26, 0.02)',
+        'card': '0 4px 18px -2px rgba(19, 29, 26, 0.05), 0 2px 6px -1px rgba(19, 29, 26, 0.03)',
         'elevated': '0 12px 32px -4px rgba(19, 29, 26, 0.08), 0 4px 12px -2px rgba(19, 29, 26, 0.04)',
         'floating': '0 20px 40px -8px rgba(19, 29, 26, 0.12), 0 8px 16px -4px rgba(19, 29, 26, 0.06)',
+        'glow-emerald': '0 0 25px rgba(26, 166, 126, 0.25)',
       },
       animation: {
         'float-slow': 'float 6s ease-in-out infinite',
-        'orbit-clockwise': 'spin 24s linear infinite',
-        'orbit-counter': 'spin-counter 32s linear infinite',
+        'orbit-clockwise': 'spin 28s linear infinite',
+        'orbit-counter': 'spin-counter 36s linear infinite',
         'pulse-subtle': 'pulseSubtle 4s ease-in-out infinite',
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
+          '50%': { transform: 'translateY(-8px)' },
         },
         'spin-counter': {
           from: { transform: 'rotate(360deg)' },
           to: { transform: 'rotate(0deg)' },
         },
         pulseSubtle: {
-          '0%, 100%': { opacity: '0.8' },
+          '0%, 100%': { opacity: '0.85' },
           '50%': { opacity: '1' },
         }
       }

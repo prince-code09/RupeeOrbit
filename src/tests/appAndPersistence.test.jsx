@@ -53,7 +53,7 @@ describe('Ledgerly Application UI Flows & Persistence', () => {
     render(<App />);
 
     // Verify Overview is rendered
-    expect(screen.getByText('Survive the Month on ₹10,000')).toBeInTheDocument();
+    expect(screen.getByText('30-Day Financial Survival')).toBeInTheDocument();
 
     // Click "Decision Lab" tab
     const decisionLabTabs = screen.getAllByText('Decision Lab');
