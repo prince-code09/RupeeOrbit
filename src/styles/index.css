@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-parchment: #F5F2EB;
+    --text-ink: #141D1A;
+    --accent-mint: #106B52;
+    --accent-terracotta: #CF563C;
+    --accent-amber: #D97706;
+  }
+
+  body {
+    background-color: #F5F2EB;
+    color: #141D1A;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-editorial {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .font-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-feature-settings: "tnum" 1, "zero" 1;
+  }
+}
+
+/* Custom Scrollbar for sleek fintech look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #EBE5D8;
+}
+::-webkit-scrollbar-thumb {
+  background: #C7BBA2;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #AA9A7E;
+}
+
+/* Focus styles for keyboard navigation */
+:focus-visible {
+  outline: 2px solid #106B52;
+  outline-offset: 2px;
+}
+
+/* Subtle pulse glow */
+@keyframes glow-mint {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(22, 163, 110, 0.25), 0 0 35px rgba(22, 163, 110, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(22, 163, 110, 0.4), 0 0 50px rgba(22, 163, 110, 0.2);
+  }
+}
+
+.mint-glow {
+  animation: glow-mint 4s ease-in-out infinite;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .orbit-ring, .particle, .floating-token, .mint-glow {
+    animation: none !important;
+    transform: none !important;
+  }
+}
